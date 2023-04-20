@@ -36,7 +36,7 @@ import FaceScanPopup from './FaceScanPopup';
 
 
 
-  export default function Popup(){
+  export default function Popup(props){
     // popup 
     const [open, setOpen] = React.useState(false);
 
@@ -50,7 +50,15 @@ import FaceScanPopup from './FaceScanPopup';
     // popup ended
 
     return(
-
+      <>
+      <Button
+      onClick={handleClickOpen}
+      fullWidth
+      type="submit"
+      variant="contained"
+      sx={{ mt: 5, mb: 1 }}>
+      scan
+      </Button>
       <Dialog open={open} onClose={handleClose}>
           <DialogTitle>Scan your face</DialogTitle>
           <DialogContent>
@@ -82,5 +90,7 @@ import FaceScanPopup from './FaceScanPopup';
           <Button onClick={handleClose}>Subscribe</Button>
           </DialogActions>
       </Dialog>
+      </>
+
     )
   }

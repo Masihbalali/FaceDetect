@@ -13,6 +13,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+//mui icons
+import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
+
 
 //popup
 import Dialog from '@mui/material/Dialog';
@@ -145,8 +148,10 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
+
             
             <Button
+            startIcon={<SensorOccupiedIcon />}
               onClick={handleClickOpen}
               type="submit"
               fullWidth

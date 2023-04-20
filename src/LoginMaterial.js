@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { useState } from "react";
+
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -49,6 +52,9 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LoginMaterial(props) {
+
+    const [pwd_visibility, Setpwd_display] = React.useState("hidden")
+
     // popup 
     const [open, setOpen] = React.useState(false);
     const [disable, setDisable] = React.useState(true)
@@ -69,6 +75,11 @@ export default function LoginMaterial(props) {
 
     }
 
+    const handleVisibility = (event) =>{
+      event.preventDefault();
+      Setpwd_display("visible")
+    }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -77,6 +88,11 @@ export default function LoginMaterial(props) {
       password: data.get('password'),
     });
   };
+
+  const handleComp = () =>{
+    console.log("test")
+  }
+
 
 
   return (
@@ -122,17 +138,29 @@ export default function LoginMaterial(props) {
                   id="password"
                   autoComplete="new-password"
                   className='pwd-input'
-                  disabled={disable}
+                  sx={{visibility:pwd_visibility}}
                 />
               </Grid>
             </Grid>
             <Grid item xs={12}>
-                <ButtonGroup
+            <Button
+                    startIcon={<SensorOccupiedIcon />}
+                    onClick={handleClickOpen}
+                    fullWidth
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 5, mb: 1 }}>
+                    scan
+                    </Button>
+
+                {/* <ButtonGroup
                     fullWidth
                     disableElevation
                     variant="contained"
                     aria-label="Disabled elevation buttons">
+                    
                     <Button
+                    disabled
                     startIcon={<PasswordIcon />}
                     onClick={handleInput}
                     type="submit"
@@ -149,7 +177,7 @@ export default function LoginMaterial(props) {
                     sx={{ mt: 5, mb: 1 }}>
                     scan
                     </Button>
-                    </ButtonGroup>
+                    </ButtonGroup> */}
             </Grid>
             
             <Button
@@ -159,6 +187,13 @@ export default function LoginMaterial(props) {
               sx={{ mt: 1, mb: 2 }}>
               Login
             </Button>
+            <Grid container justifyContent="flex-start">
+              <Grid item >
+                <Link href='#' onClick={handleVisibility} variant="body2">
+                  Use Password insted.
+                </Link>
+              </Grid>
+            </Grid>
             <Grid container justifyContent="flex-start">
               <Grid item >
                 <Link href="/signup" to="/signup" variant="body2">
