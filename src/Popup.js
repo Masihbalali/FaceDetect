@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
+import ButtonGroup  from '@mui/material/ButtonGroup';
 
 //popup
 import Dialog from '@mui/material/Dialog';
@@ -8,7 +9,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import FaceScanPopup from './FaceScanPopup';
 
 
 
@@ -63,31 +63,55 @@ import FaceScanPopup from './FaceScanPopup';
           <DialogTitle>Scan your face</DialogTitle>
           <DialogContent>
           <DialogContentText>
-              To subscribe to this website, please enter your email address here. We
-              will send updates occasionally.
+              To subscribe to this website, please enter your email address here.
           </DialogContentText>
           <div id="group-scan" className="popup-container">
               <video id="video" autoplay></video>
               <canvas id="canvas"></canvas>
-              <div class="btn-container">
-                  <button id="photo-button">start-camera</button>
-                  <button id="take-photo">take</button>
+              <div className={"btn-container"}>
+              <Grid item xs={12}>
+                <ButtonGroup
+                    fullWidth
+                    disableElevation
+                    variant="contained"
+                    aria-label="Disabled elevation buttons">
+                    <Button
+
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 5, mb: 1 }}>
+                      Start camera
+                    </Button>
+
+                    <Button
+
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 5, mb: 1 }}>
+                    Take
+                    </Button>
+                    </ButtonGroup>
+            </Grid>
+
               </div>
-              <input type="text" class="popup-input" id="photo-input"/>
+              <input type="text" className={"popup-input"} id="photo-input"/>
           </div>
+        
+        {/* 
+          it could be use for sending data
           <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Email Address"
-              type="email"
+              label="text"
+              type="text"
               fullWidth
               variant="standard"
-          />
+          /> */}
+
           </DialogContent>
           <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>Done</Button>
           </DialogActions>
       </Dialog>
       </>

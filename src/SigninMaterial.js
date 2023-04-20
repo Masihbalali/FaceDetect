@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import ButtonGroup  from '@mui/material/ButtonGroup';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 //mui icons
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
@@ -182,38 +183,62 @@ export default function SignUp() {
       </Container>
     </ThemeProvider>
 
-
+    {/* popup */}
     <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Scan your face</DialogTitle>
-            <DialogContent>
-            <DialogContentText>
-                To subscribe to this website, please enter your email address here. We
-                will send updates occasionally.
-            </DialogContentText>
-            <div id="group-scan" className="popup-container">
-                <video id="video" autoplay></video>
-                <canvas id="canvas"></canvas>
-                <div class="btn-container">
-                    <button id="photo-button">start-camera</button>
-                    <button id="take-photo">take</button>
-                </div>
-                <input type="text" class="popup-input" id="photo-input"/>
-            </div>
-            <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="Email Address"
-                type="email"
-                fullWidth
-                variant="standard"
-            />
-            </DialogContent>
-            <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleClose}>Subscribe</Button>
-            </DialogActions>
-        </Dialog>
+          <DialogTitle>Scan your face</DialogTitle>
+          <DialogContent>
+          <DialogContentText>
+              To subscribe to this website, please enter your email address here.
+          </DialogContentText>
+          <div id="group-scan" className="popup-container">
+              <video id="video" autoplay></video>
+              <canvas id="canvas"></canvas>
+              <div className={"btn-container"}>
+              <Grid item xs={12}>
+                <ButtonGroup
+                    fullWidth
+                    disableElevation
+                    variant="contained"
+                    aria-label="Disabled elevation buttons">
+                    <Button
+
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 5, mb: 1 }}>
+                      Start camera
+                    </Button>
+
+                    <Button
+
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 5, mb: 1 }}>
+                    Take
+                    </Button>
+                    </ButtonGroup>
+            </Grid>
+
+              </div>
+              <input type="text" className={"popup-input"} id="photo-input"/>
+          </div>
+        
+        {/* 
+          it could be use for sending data
+          <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="text"
+              type="text"
+              fullWidth
+              variant="standard"
+          /> */}
+
+          </DialogContent>
+          <DialogActions>
+          <Button onClick={handleClose}>Done</Button>
+          </DialogActions>
+      </Dialog>
 
 </>
 
