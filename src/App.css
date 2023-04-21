@@ -87,3 +87,16 @@ visibility: hidden;
 .btn-container{
 	margin: 10px 0;
 }
+
+
+@media screen and (max-width: 576px) {
+  .MuiPaper-root{
+    margin: 0!important;
+  }
+  .css-zll6z9-MuiContainer-root {
+    margin: 0!important;
+    border-radius: 0;
+    transition: margin 0.5s, border-radius 0.5s;
+  }
+  
+}

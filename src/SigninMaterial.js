@@ -24,7 +24,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import FaceScanPopup from './FaceScanPopup';
 
 
 
@@ -47,7 +46,7 @@ const theme = createTheme();
 
 
 //Main component
-export default function SignUp() {
+export default function SigninMaterial() {
 
     // popup 
     const [open, setOpen] = React.useState(false);
@@ -72,11 +71,7 @@ export default function SignUp() {
   };
 
 
-  const handlecomponent = (event) =>{
-        alert("poped!")
-        event.preventDefault();
-        <FaceScanPopup />
-    }
+
 
   return (
 <>
@@ -162,7 +157,6 @@ export default function SignUp() {
             </Button>
             
             <Button
-              onClick={handlecomponent}
               type="submit"
               fullWidth
               variant="contained"
@@ -172,7 +166,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-start">
               <Grid item >
-                <Link href="/" to="/" variant="body2">
+                <Link href="/" to="/" onCanPlay={(e)=> e.preventDefault()} variant="body2">
                   Already have an account? Login.
                 </Link>
               </Grid>

@@ -27,7 +27,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import FaceScanPopup from './FaceScanPopup';
+
 import ButtonGroup from '@mui/material/ButtonGroup';
 import "./App.css"
 
@@ -196,7 +196,7 @@ export default function LoginMaterial(props) {
             </Grid>
             <Grid container justifyContent="flex-start">
               <Grid item >
-                <Link href="/signup" to="/signup" variant="body2">
+                <Link href="/signup" onCanPlay={(e)=> e.preventDefault()} variant="body2">
                   Don't have an account? Sign up
                 </Link>
               </Grid>
@@ -209,7 +209,7 @@ export default function LoginMaterial(props) {
 
 
       {/* popup */}
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose} className={"margin-container"}>
           <DialogTitle>Scan your face</DialogTitle>
           <DialogContent>
           <DialogContentText>
