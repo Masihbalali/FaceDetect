@@ -6,16 +6,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+
 //icons
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import SensorOccupiedIcon from '@mui/icons-material/SensorOccupied';
-import DeleteIcon from '@mui/icons-material/Delete';
-import PasswordIcon from '@mui/icons-material/Password';
 
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -31,8 +27,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import "./App.css"
 
-import { Outlet } from "react-router-dom";
-import Popup from './Popup';
 
 
 
@@ -89,9 +83,7 @@ export default function LoginMaterial(props) {
     });
   };
 
-  const handleComp = () =>{
-    console.log("test")
-  }
+
 
 
 
@@ -152,32 +144,6 @@ export default function LoginMaterial(props) {
                     sx={{ mt: 5, mb: 1 }}>
                     scan
                     </Button>
-
-                {/* <ButtonGroup
-                    fullWidth
-                    disableElevation
-                    variant="contained"
-                    aria-label="Disabled elevation buttons">
-                    
-                    <Button
-                    disabled
-                    startIcon={<PasswordIcon />}
-                    onClick={handleInput}
-                    type="submit"
-                    variant="contained"
-                    sx={{ mt: 5, mb: 1 }}>
-                    password
-                    </Button>
-
-                    <Button
-                    startIcon={<SensorOccupiedIcon />}
-                    onClick={handleClickOpen}
-                    type="submit"
-                    variant="contained"
-                    sx={{ mt: 5, mb: 1 }}>
-                    scan
-                    </Button>
-                    </ButtonGroup> */}
             </Grid>
             
             <Button
@@ -246,18 +212,6 @@ export default function LoginMaterial(props) {
               </div>
               <input type="text" className={"popup-input"} id="photo-input"/>
           </div>
-        
-        {/* 
-          it could be use for sending data
-          <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="text"
-              type="text"
-              fullWidth
-              variant="standard"
-          /> */}
 
           </DialogContent>
           <DialogActions>
