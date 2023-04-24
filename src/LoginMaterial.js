@@ -26,6 +26,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import ButtonGroup from '@mui/material/ButtonGroup';
 import "./App.css"
+import Popup from './Popup';
 
 
 
@@ -46,8 +47,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LoginMaterial(props) {
-
     const [pwd_visibility, Setpwd_display] = React.useState("hidden")
+    const [msize, setMsize] = React.useState(-8)
 
     // popup 
     const [open, setOpen] = React.useState(false);
@@ -83,13 +84,14 @@ export default function LoginMaterial(props) {
     });
   };
 
-
-
+  //Group botton margin handler 
+  const handleGroupbtn = () =>{
+    setMsize(5)
+  }
 
 
   return (
 <>
-
     <ThemeProvider theme={theme}>
       <Container component="main" className="main-container" maxWidth="xs" sx={{mt:"10%"}}>
         <CssBaseline />
@@ -99,8 +101,8 @@ export default function LoginMaterial(props) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-          }}
-        >
+          }}>
+
           <Avatar sx={{ m: 0, bgcolor: 'transparent', height:70, width:70 }}>
             {/* <SensorOccupiedIcon  sx={{ width: 25, height: 25}}/> */}
             <img src="https://img.icons8.com/ios/50/null/face-id--v2.png"/>
@@ -135,15 +137,36 @@ export default function LoginMaterial(props) {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-            <Button
+            <ButtonGroup
+            disableElevation
+            variant="contained"
+            aria-label="Disabled elevation buttons"
+            fullWidth
+            sx={{ mt: msize, mb: 1 , transition:"0.2s all" }}
+            onClick={handleGroupbtn}
+            >
+              <Button
+                    startIcon={<SensorOccupiedIcon />}
+                    onClick={handleVisibility}
+                    fullWidth
+                    type="submit"
+                    variant="contained"
+                    // sx={{ mt: 5, mb: 1 }}
+                    >
+                    Password
+                    </Button>
+              <Button
                     startIcon={<SensorOccupiedIcon />}
                     onClick={handleClickOpen}
                     fullWidth
                     type="submit"
                     variant="contained"
-                    sx={{ mt: 5, mb: 1 }}>
+                    // sx={{ mt: 5, mb: 1 }}
+                    >
                     scan
                     </Button>
+          </ButtonGroup>
+            
             </Grid>
             
             <Button
@@ -153,13 +176,13 @@ export default function LoginMaterial(props) {
               sx={{ mt: 1, mb: 2 }}>
               Login
             </Button>
-            <Grid container justifyContent="flex-start">
+            {/* <Grid container justifyContent="flex-start">
               <Grid item >
                 <Link href='#' onClick={handleVisibility} variant="body2">
                   Use Password insted.
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
             <Grid container justifyContent="flex-start">
               <Grid item >
                 <Link href="/signup" onCanPlay={(e)=> e.preventDefault()} variant="body2">

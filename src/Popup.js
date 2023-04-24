@@ -36,7 +36,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 
 
-  export default function Popup(props){
+const Popup = ({something}) =>{
     // popup 
     const [open, setOpen] = React.useState(false);
 
@@ -48,7 +48,10 @@ import DialogTitle from '@mui/material/DialogTitle';
       setOpen(false);
     };
     // popup ended
-
+    if (something === true) {
+      handleClickOpen()
+      console.log("test")
+    }
     return(
       <>
       <Button
@@ -118,3 +121,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
     )
   }
+
+
+
+  export default Popup
